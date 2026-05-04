@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Notice – Think Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    /* Angepasste Styles für perfekte Ausrichtung */
+    .legal-content-wrap { margin-top: 120px; margin-bottom: 80px; }
+    .legal-text { color: #1a202c; font-family: 'Inter', sans-serif; }
+    .legal-text h1 { font-size: 2.5rem; margin-bottom: 2rem; color: #0a192f; }
+    .legal-text h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #0a192f; }
+    .legal-text p { line-height: 1.6; margin-bottom: 1rem; }
+    .legal-text a { color: #A47D5E; text-decoration: none; font-weight: 500; }
+    .legal-text a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div id="ts-menu-slot"></div>
+  <div id="ts-header-slot"></div>
+
+  <main class="legal-content-wrap">
+    <div class="grid section-grid">
+      <!-- Linke Spalte bleibt leer (Platz unterm Logo) -->
+      <div class="left"></div>
+      
+      <!-- Rechte Spalte (Text bündig mit rechtem Content) -->
+      <div class="right legal-text">
+        <h1>Legal Notice</h1>
+        
+        <h2>Information according to standard business requirements</h2>
+        <p>
+          <strong>Think Smart LLC</strong><br>
+          1209 MOUNTAIN ROAD PL NE <br>
+          STE N<br>
+          ALBUQUERQUE, NM 87110
+        </p>
+        
+        <h2>Company Registration</h2>
+        <p>Registered in the State of New Mexico, USA<br>
+          Entity ID: 0008096469<br>
+          Effective date: April 16, 2026</p>
+
+        <h2>Represented by</h2>
+        <p>Rolf Schneidereit</p>
+
+        <h2>Contact</h2>
+        <p>
+          Email: <a href="mailto:hello@think-smart.io">hello@think-smart.io</a><br>
+        </p>
+
+        <h2>Liability for Content & Links</h2>
+        <p>
+          The contents of our website have been created with the utmost care. However, we cannot guarantee the contents' accuracy, completeness, or topicality. Our website contains links to external websites of third parties. We have no influence on the contents of these websites, therefore we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages.
+        </p>
+
+        <h2>Copyright</h2>
+        <p>
+          The content and works published on this website are governed by copyright laws. Any duplication, processing, distribution, or any form of utilization beyond the scope of copyright law shall require the prior written consent of the author or authors in question.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="ts-footer-slot"></div>
+
+<script src="components.js"></script>
+<script>
+  ThinkSmartComponents.mount({
+    headerVariant: 'home'
+  });
+</script>
+
+</body>
+</html>

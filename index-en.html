@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Think Smart</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <meta name="description" content="Think Smart – Augmenting Human Intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    :root{
+      --c-navy:#0C223F;
+      --c-bronze:#A87E5B;
+      --c-text:#333333;
+      --c-grid:#D5D5D5;
+      --c-stage:#F5F5F5E6;
+      --c-stage-border:#D8D8D8;
+      --ts-logo-h-home:130px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body.page-home{
+      font-family:'Inter',system-ui,Arial,sans-serif;
+      color:var(--c-text);
+      background-color:#FFFFFF;
+      line-height:1.6;
+      font-size:18px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      background-image:
+        repeating-linear-gradient(to right,
+          var(--c-grid) 0px, var(--c-grid) 1px,
+          transparent 1px, transparent 80px,
+          var(--c-grid) 80px, var(--c-grid) 81px,
+          transparent 81px, transparent 110px
+        ),
+        repeating-linear-gradient(to bottom,
+          var(--c-grid) 0px, var(--c-grid) 1px,
+          transparent 1px, transparent 120px
+        );
+      background-attachment:fixed;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      column-gap:20px;
+      max-width:1400px;
+      margin:0 auto;
+      padding:0 40px;
+    }
+
+    .left{grid-column:1 / 4}
+    .right{grid-column:4 / 11}
+
+    .readable{
+      background:rgba(255,255,255,.86);
+      box-shadow:10px 0 0 rgba(255,255,255,.86), -10px 0 0 rgba(255,255,255,.86);
+      display:inline;
+    }
+
+    .text-block{max-width:74ch;margin-bottom:24px}
+
+    main.home-main section{margin-bottom:72px}
+    main.home-main section:last-of-type{margin-bottom:0;padding-bottom:36px}
+
+    .home-hero{margin-top:6px}
+
+    .home-hero h1{
+      color:var(--c-navy);
+      font-size:44px;
+      line-height:1.08;
+      font-weight:700;
+      letter-spacing:-.03em;
+      margin-bottom:16px;
+      background:rgba(255,255,255,.86);
+      display:inline-block;
+    }
+
+    .home-hero .subtitle{
+      color:var(--c-bronze);
+      display:block;
+      margin-top:4px;
+    }
+
+    .home-lead{
+      max-width:60ch;
+      margin:0 0 24px;
+      color:#2F343A;
+      font-size:20px;
+      line-height:1.45;
+      font-weight:700;
+      background:rgba(255,255,255,.86);
+      display:inline-block;
+    }
+
+    p{font-size:16px;line-height:1.7}
+
+    h2{
+      color:var(--c-navy);
+      font-size:32px;
+      line-height:1.14;
+      font-weight:700;
+      letter-spacing:-.02em;
+      margin-bottom:10px;
+      background:rgba(255,255,255,.86);
+      display:inline-block;
+    }
+
+    h3{
+      color:var(--c-bronze);
+      font-size:22px;
+      line-height:1.28;
+      font-weight:700;
+      margin-bottom:18px;
+      background:rgba(255,255,255,.86);
+      display:inline-block;
+    }
+
+    .kicker-head{
+      color:#333;
+      font-size:24px;
+      line-height:1.25;
+      font-weight:700;
+      margin-bottom:34px;
+      background:rgba(255,255,255,.86);
+      display:inline-block;
+    }
+
+    .stage{
+      width:100%;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .stage.is-missing::after{
+      content:attr(data-placeholder);
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:12px;
+      color:#9a9a9a;
+      padding:14px;
+    }
+
+    .logo-stage{
+      aspect-ratio:3/2;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      background:transparent;
+    }
+
+    .logo-stage.is-missing{
+      background:rgba(255,255,255,.35);
+      border:1px dashed #d7d7d7;
+    }
+
+    .media-stage{
+      background:var(--c-stage);
+      border:1px solid var(--c-stage-border);
+      display:grid;
+      place-items:center;
+    }
+
+    .rrc-stage{aspect-ratio:3/2}
+    .photo-stage{aspect-ratio:3/4}
+    .app-stage{aspect-ratio:1/1}
+
+    .media-stage.is-missing{
+      background:rgba(245,245,245,.58);
+      border:1px dashed #d7d7d7;
+    }
+
+    .asset-box{
+      position:relative;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      max-width:100%;
+      max-height:100%;
+    }
+
+    #aciBox{width:64%;transform:translateY(6px)}
+    #assBox{width:64%;transform:translateY(0)}
+    #rrcBox{width:63%}
+    #founderBox{width:78%;height:100%;transform:translateY(-8px)}
+    #appBox{width:88%;height:100%;transform:translateY(2px)}
+
+    .asset-media{opacity:0;transition:opacity .2s ease}
+    .asset-media.is-loaded{opacity:1}
+
+    .logo-stage img{
+      width:100%;
+      height:auto;
+      max-width:100%;
+      max-height:170px;
+    }
+
+    .rrc-stage img,
+    .photo-stage img,
+    .app-stage img{
+      width:100%;
+      height:auto;
+      max-width:100%;
+      max-height:100%;
+    }
+
+    #founderImg{filter:grayscale(100%) contrast(1.08)}
+
+    .solid-btn{
+      display:inline-block;
+      background:var(--c-navy);
+      color:#fff;
+      text-decoration:none;
+      padding:16px 32px;
+      font-weight:600;
+      font-size:16px;
+      margin-top:8px;
+      border:0;
+      transition:background-color .2s ease;
+    }
+
+    .solid-btn:hover,
+    .solid-btn:focus-visible{
+      background:var(--c-bronze);
+      outline:none;
+    }
+
+    .cta-note{
+      margin-top:10px;
+      font-size:14px;
+      line-height:1.55;
+      color:#66707B;
+    }
+
+    .cta-note a{
+      color:var(--c-bronze);
+      text-decoration:none;
+      border-bottom:1px solid rgba(168,126,91,.35);
+    }
+
+    .cta-note a:hover,
+    .cta-note a:focus-visible{
+      color:#7b583d;
+      outline:none;
+    }
+
+    @media (max-width:1100px){
+      .right{grid-column:4 / 12}
+    }
+
+    @media (max-width:820px){
+      .content-grid{grid-template-columns:1fr;padding:0 22px}
+      .left,.right{grid-column:1}
+      main.home-main section{margin-bottom:58px}
+      .left{margin-bottom:18px}
+      .logo-stage,.rrc-stage,.photo-stage,.app-stage{max-width:320px}
+      .home-hero h1{font-size:34px}
+      h2{font-size:28px}
+      h3{font-size:20px}
+      .home-lead{font-size:18px}
+      .kicker-head{font-size:21px}
+    }
+  </style>
+</head>
+<body class="page-home">
+  <div id="ts-menu-slot"></div>
+  <div id="ts-header-slot"></div>
+
+  <main class="home-main">
+    <section class="home-hero">
+      <div class="content-grid">
+        <div class="left"></div>
+        <div class="right">
+          <h1>Intelligence for impactful change:<br><span class="subtitle">Augmenting Human Intelligence</span></h1>
+
+          <p class="home-lead">We combine human experience with smart AI application. For faster implementation, bolder visions, and genuine breakthroughs.</p>
+
+          <div class="text-block">
+            <span class="readable">Complex challenges require new answers. Top-down cascades cost time and impact. We turn those affected into active shapers. Our proprietary technology and the smart use of AI accelerate change. In doing so, we harness the collective intelligence of your organization.</span>
+          </div>
+
+          <div class="text-block" style="margin-top:20px;">
+            <span class="readable" style="font-weight:600;">These services support you in your next steps:</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage logo-stage" data-placeholder="assets/TS_ACI.png fehlt">
+            <div class="asset-box" id="aciBox">
+              <img src="assets/TS_ACI.png" alt="Think Smart ACI Logo" class="asset-media" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'; this.closest('.stage').classList.add('is-missing');">
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <h2>Smarter process facilitation:</h2>
+          <h3>Augmented Collective Intelligence</h3>
+          <div class="text-block">
+            <span class="readable">Augmented Collective Intelligence (ACI) is the next level of process facilitation. It combines mobilizing facilitation with lightning-fast pattern recognition by AI. This accelerates workshops, conventions, large group conferences, and complex change processes. We make the knowledge of the many instantly usable. AI synthesizes knowledge and generated ideas in real time. We utilize Augmented Collective Intelligence in both in-person and online events.</span>
+          </div>
+          <a class="solid-btn" href="aci-en.html">Learn more about ACI here</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage logo-stage" data-placeholder="assets/TS_ASS.png fehlt">
+            <div class="asset-box" id="assBox">
+              <img src="assets/TS_ASI.png" alt="Think Smart ASS Logo" class="asset-media" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'; this.closest('.stage').classList.add('is-missing');">
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <h2>Roll out new strategies in record time:</h2>
+          <h3>Augmented Strategy Implementation</h3>
+          <div class="text-block">
+            <span class="readable">The Augmented Strategy Implementation (ASI) is your turbo for strategy development and implementation across the entire organization. In two to three intensive sprints, robust implementation plans are created for every department. Without transmission losses or resistance. Instead of experiencing themselves as objects of change, teams become active drivers. And instead of being challenged by you, the teams are challenged by five AI experts. Augmented Collective Intelligence can be deployed synchronously and asynchronously.</span>
+          </div>
+          <a class="solid-btn" href="asi-en.html">Learn more about ASI here</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage media-stage rrc-stage" data-placeholder="assets/TS_RRC.png fehlt">
+            <div class="asset-box" id="rrcBox">
+              <img src="assets/TS_RRC.png" alt="Radical Reality Check" class="asset-media" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'; this.closest('.stage').classList.add('is-missing');">
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <h2>The Reality Check for Executives</h2>
+          <h3>At turning and decision points</h3>
+          <div class="text-block">
+            <span class="readable">Your path so far has taken you far. Perhaps you are currently successfully crowning your life's work. Or perhaps you feel that the old system is no longer sustainable. You stand at a threshold. The next chapter is still unwritten (as it might be for your successors). Traditional coaching is often too tame here. It lacks genuine creativity. We open up your habitual thinking. We awaken deeper needs. Five top-tier AI experts, alongside myself, will inspire you with completely new ideas.</span>
+          </div>
+          <div class="text-block">
+  <span class="readable">Request your access code here:</span>
+</div>
+<a class="solid-btn" href="mailto:rolf@radicalreality.consulting?subject=Zugangscode%20senden">Radical Reality Check</a>
+<p class="cta-note">Or directly via: <a href="mailto:rolf@radicalreality.consulting?subject=Zugangscode%20senden">rolf@radicalreality.consulting</a></p>
+ </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage media-stage photo-stage" data-placeholder="assets/TS_Portrait.jpg fehlt">
+            <div class="asset-box" id="founderBox">
+              <img id="founderImg" src="assets/TS_Portrait.jpg" alt="Portrait des Gründers" class="asset-media" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'; this.closest('.stage').classList.add('is-missing');">
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="kicker-head">The Foundation: Decades of profound experience combined with technology</div>
+          <h2>Entrepreneur, Strategy Consultant, Process Facilitator</h2>
+          <h3>Rolf Schneidereit</h3>
+          <div class="text-block">
+            <span class="readable">For many years, I have guided organizations through change processes. As an entrepreneur, I know responsibility firsthand. As a strategy consultant, I am familiar with complex decisions. Since 2008, I have facilitated processes with groups and large groups. Today, I combine this experience with AI-supported analysis. This creates clarity, speed, and new possibilities for action.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage media-stage app-stage" data-placeholder="assets/TS_App2.jpg fehlt">
+            <div class="asset-box" id="appBox">
+              <img src="assets/TS_App2.jpg" alt="Think Smart App Screenshot" class="asset-media" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'; this.closest('.stage').classList.add('is-missing');">
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <h2>The Think-Smart App as the interface</h2>
+          <h3>between human and artificial intelligence</h3>
+          <div class="text-block">
+            <span class="readable">All processes are controlled by our proprietary app. Secure. GDPR-compliant. Seamless. The app orchestrates the interaction between teams and AI coaches. It enriches various process formats with artificial intelligence.</span>
+          </div>
+                   <div class="text-block">
+            <span class="readable">How and where can we help you? We would be happy to clarify this in a 30-minute Discovery Call:</span>
+          </div>
+
+          <a class="solid-btn" href="mailto:hello@think-smart.io?subject=Werkstattgespr%C3%A4ch">Request a Discovery Call</a>
+          <p class="cta-note">Or directly via: <a href="mailto:hello@think-smart.io">hello@think-smart.io</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="ts-footer-slot"></div>
+
+<script src="components.js"></script>
+<script>
+  ThinkSmartComponents.mount({
+    headerVariant: 'home'
+  });
+</script>
+</body>
+</html>
