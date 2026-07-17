@@ -7,186 +7,211 @@
   <meta name="description" content="Radical Reality Check: Seis perspectivas. Para decisiones estratégicas. Coaching intensivo para personas en puntos de inflexión.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="components.css">
-  <link rel="stylesheet" href="rrc.css">
-  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="aci.css"> 
+
+  <style>
+    .inline-freestanding {
+      display: block;
+      margin: 40px auto;
+      max-width: 500px; 
+      height: auto;
+    }
+    .monolith-img {
+      display: block;
+      margin: 0 auto;
+      max-height: 320px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .portrait-freestanding {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      display: block;
+      margin: 0 auto; 
+    }
+    .rrc-list-item {
+      margin-bottom: 20px;
+      max-width: 76ch;
+    }
+    .rrc-list-text {
+      font-size: 20px;
+      font-weight: 600; 
+      line-height: 1.5;
+    }
+    @media (max-width: 820px) { 
+      .inline-freestanding { max-width: 100%; }
+      .portrait-freestanding, .monolith-img { margin-bottom: 24px; }
+    }
+  </style>
+
 </head>
-<body class="page-rrc">
+<body class="page-aci"> 
+  
   <div id="ts-menu-slot"></div>
   <div id="ts-header-slot"></div>
 
   <main>
-    <section class="rrc-hero">
-      <div class="rrc-badge">A Think Smart Service</div>
-      <h1>RADICAL<br><span>REALITY</span> CHECK</h1>
-      <p class="rrc-hero-sub">Seis perspectivas. Para decisiones estratégicas.</p>
-      <p class="rrc-hero-footer">Coaching intensivo para personas en puntos de inflexión</p>
-      <div class="rrc-hero-text">
-        <p>¿Te enfrentas a una decisión importante sobre tu rumbo en la vida? Elige a los mejores mentores del mundo para tu apoyo. Observa tu situación y tus posibilidades desde todos los ángulos. Sin los puntos ciegos de una sola persona. Para que decidas tu próximo paso de manera fundamentada y prudente.</p>
+    <!-- HERO -->
+    <section class="aci-hero">
+      <div class="grid section-grid">
+        <div class="left">
+          <img src="assets/Bild_12_3.png" alt="Radical Reality Check Monolith" class="monolith-img">
+        </div>
+        <div class="right">
+          <div style="font-size: 13px; font-weight: 700; color: var(--c-bronze); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">A Think Smart Service</div>
+          <h1>RADICAL REALITY CHECK</h1>
+          <p class="hero-subhead">Seis perspectivas. Para decisiones estratégicas.<br>Coaching intensivo para personas en puntos de inflexión.</p>
+          
+          <div class="text-block">
+            <span class="readable">¿Te enfrentas a una decisión importante sobre tu rumbo en la vida? Elige a los mejores mentores del mundo para tu apoyo. Observa tu situación y tus posibilidades desde todos los ángulos. Sin los puntos ciegos de una sola persona. Para que decidas tu próximo paso de manera fundamentada y prudente.</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="rrc-section">
-      <div class="rrc-grid">
+    <!-- KONZEPT -->
+    <section class="aci-section">
+      <div class="grid section-grid">
         <div class="left"></div>
         <div class="right">
-          <span class="rrc-section-label">El Concepto</span>
           <h2>Seis mentores. Un objetivo. Tu claridad para el camino.</h2>
-          <p class="rrc-body-text">
-            El Radical Reality Check es un coaching IA por etapas. Eliges tu propio "comité de expertos": cinco perfiles virtuales, radicalmente distintos, sin filtros. Yo* como sexto coach modulo, documento y aterrizo las ideas. Soy tu vínculo dentro del círculo. Te confrontamos hasta que tu próximo paso se vuelva evidente.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="rrc-section rrc-section--alt">
-      <div class="rrc-grid">
-        <div class="left"></div>
-        <div class="right">
-          <span class="rrc-section-label">Lo que logra la IA</span>
-          <h3 style="margin-bottom:32px;">Lo que el coaching tradicional no puede:</h3>
-          <div class="rrc-pillars">
-            <div class="rrc-pillar-card">
-              <div class="rrc-pillar-num">01</div>
-              <h3>Visión 360°</h3>
-              <p>En vez de una opinión, obtienes todo un espectro. Tú eliges lo que hace sentido.</p>
-            </div>
-            <div class="rrc-pillar-card">
-              <div class="rrc-pillar-num">02</div>
-              <h3>Honestidad brutal</h3>
-              <p>El sistema te pondrá un espejo por delante. Te hará preguntas que amigos y colegas no se atreven a hacer.</p>
-            </div>
-            <div class="rrc-pillar-card">
-              <div class="rrc-pillar-num">03</div>
-              <h3>Iteración constante</h3>
-              <p>Al mismo tiempo, estos coaches están listos para admitir en cualquier momento errores y diagnósticos equivocados. Nuevos datos, nueva lectura.</p>
-            </div>
-          </div>
-          <div class="rrc-quote">
-            <p>"La fuerza de la IA no está en la infalibilidad. Está en corregirse tan radicalmente hasta que la verdad del cliente se haga visible."</p>
+          <div class="text-block">
+            <span class="readable">El Radical Reality Check es un coaching IA por etapas. Eliges tu propio "comité de expertos": cinco perfiles virtuales, radicalmente distintos, sin filtros. Yo* como sexto coach modulo, documento y aterrizo las ideas. Soy tu vínculo dentro del círculo. Te confrontamos hasta que tu próximo paso se vuelva evidente.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="rrc-section">
-      <div class="rrc-grid">
+    <!-- KI LEISTUNG -->
+    <section class="aci-section">
+      <div class="grid section-grid">
         <div class="left"></div>
         <div class="right">
-          <span class="rrc-section-label">Para quién. Y cómo.</span>
+          <h2>Lo que logra la IA</h2>
+          <h3 style="margin-bottom: 32px;">Lo que el coaching tradicional no puede:</h3>
+          
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">01 / Visión 360°</span> <span style="color: var(--c-navy);">– En vez de una opinión, obtienes todo un espectro. Tú eliges lo que hace sentido.</span>
+            </span>
+          </div>
+
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">02 / Honestidad brutal</span> <span style="color: var(--c-navy);">– El sistema te pondrá un espejo por delante. Te hará preguntas que amigos y colegas no se atreven a hacer.</span>
+            </span>
+          </div>
+
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">03 / Iteración constante</span> <span style="color: var(--c-navy);">– Al mismo tiempo, estos coaches están listos para admitir en cualquier momento errores y diagnósticos equivocados. Nuevos datos, nueva lectura.</span>
+            </span>
+          </div>
+
+          <div class="practice-callout" style="margin-top: 48px; border-left-color: var(--c-navy); background: rgba(252, 250, 248, 0.85);">
+            <p style="font-size: 18px;">"La fuerza de la IA no está en la infalibilidad. Está en corregirse tan radicalmente hasta que la verdad del cliente se haga visible."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FÜR WEN UND PROZESS -->
+    <section class="aci-section">
+      <div class="grid section-grid">
+        <div class="left"></div>
+        <div class="right">
           <h2>Para quién. Y cómo funciona.</h2>
-          <p class="rrc-body-text">
-            Para personas y líderes en un punto de inflexión (crecimiento, fundación, reorientación o cambio profundo) que no buscan palmadas en la espalda, sino contrapreguntas profundas y sin concesiones.
-          </p>
+          <div class="text-block">
+            <span class="readable">Para personas y líderes en un punto de inflexión (crecimiento, fundación, reorientación o cambio profundo) que no buscan palmadas en la espalda, sino contrapreguntas profundas y sin concesiones.</span>
+          </div>
+
+          <img src="assets/Bild_8_2.png" alt="Radical Reality Check Process" class="inline-freestanding">
+
+          <h3 style="margin-bottom: 32px;">Cuatro pasos hacia la claridad:</h3>
+          
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">01 Análisis de campo</span> <span style="color: var(--c-navy);">– Evaluación completa de tu entorno y las dinámicas en las que te mueves.</span>
+            </span>
+          </div>
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">02 Tu equipo de expertos</span> <span style="color: var(--c-navy);">– Eliges 5 personalidades de IA, calibradas bajo 7 ejes de diversidad.</span>
+            </span>
+          </div>
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">03 Dinámica iterativa</span> <span style="color: var(--c-navy);">– 3 a 4 rondas. En cada ronda: confrontación, síntesis, preguntas complementarias.</span>
+            </span>
+          </div>
+          <div class="rrc-list-item">
+            <span class="readable rrc-list-text">
+              <span style="color: var(--c-bronze);">04 Tu resultado</span> <span style="color: var(--c-navy);">– Un plan de acción claro para tus próximos pasos.</span>
+            </span>
+          </div>
+
+          <h3 style="margin-top: 48px; margin-bottom: 16px;">Tu resultado — lo que te llevas:</h3>
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--c-navy); font-size: 18px; font-weight: 600;">
+            <li>Un diagnóstico que asumes y respaldas al 100%.</li>
+            <li>Un plan práctico que tú mismo puedes ejecutar.</li>
+            <li>La claridad madurada para comunicar tu decisión a los demás.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="rrc-section rrc-section--alt">
-      <div class="rrc-grid">
-        <div class="left"></div>
-        <div class="right">
-          <span class="rrc-section-label">El Proceso</span>
-          <h3 style="margin-bottom:24px;">Cuatro pasos hacia la claridad:</h3>
-          <div class="rrc-steps">
-            <div class="rrc-step">
-              <div class="rrc-step-num">01</div>
-              <div>
-                <h3>Análisis de campo</h3>
-                <p>Evaluación completa de tu entorno y las dinámicas en las que te mueves.</p>
-              </div>
-            </div>
-            <div class="rrc-step">
-              <div class="rrc-step-num">02</div>
-              <div>
-                <h3>Tu equipo de expertos</h3>
-                <p>Eliges 5 personalidades de IA, calibradas bajo 7 ejes de diversidad.</p>
-              </div>
-            </div>
-            <div class="rrc-step">
-              <div class="rrc-step-num">03</div>
-              <div>
-                <h3>Dinámica iterativa</h3>
-                <p>3 a 4 rondas. En cada ronda: confrontación, síntesis, preguntas complementarias.</p>
-              </div>
-            </div>
-            <div class="rrc-step">
-              <div class="rrc-step-num">04</div>
-              <div>
-                <h3>Tu resultado</h3>
-                <p>Un plan de acción claro para tus próximos pasos.</p>
-              </div>
-            </div>
-          </div>
-          <h3 style="margin-top:48px; margin-bottom:20px;">Tu resultado — lo que te llevas:</h3>
-          <div class="rrc-results">
-            <div class="rrc-result">
-              <span class="rrc-result-check">✦</span>
-              <p>Un diagnóstico que asumes y respaldas al 100%.</p>
-            </div>
-            <div class="rrc-result">
-              <span class="rrc-result-check">✦</span>
-              <p>Un plan práctico que tú mismo puedes ejecutar.</p>
-            </div>
-            <div class="rrc-result">
-              <span class="rrc-result-check">✦</span>
-              <p>La claridad madurada para comunicar tu decisión a los demás.</p>
-            </div>
-          </div>
+    <!-- SECHSTER COACH -->
+    <section class="aci-section">
+      <div class="grid section-grid">
+        <div class="left">
+          <img src="assets/Portrait_Jacket_2.png" alt="Rolf Schneidereit" class="portrait-freestanding">
         </div>
-      </div>
-    </section>
-
-    <section class="rrc-section">
-      <div class="rrc-grid">
-        <div class="left"></div>
         <div class="right">
-          <span class="rrc-section-label">Tu sexto coach</span>
           <h2>*Tu sexto coach: Rolf Schneidereit</h2>
-          <p class="rrc-body-text">
-            Desde hace muchos años acompaño a personas y organizaciones en procesos de cambio. La mayoría de las veces se trata de decisiones complejas. Desde 2008 impulso la inteligencia colectiva en los procesos. Con formatos que conectan los aspectos personales con los objetivos y profesionales. Porque el éxito se vuelve sostenible cuando combinamos resultados concretos con relaciones más sólidas.
-          </p>
-          <p class="rrc-body-text">
-            En el Radical Reality Check soy tu sexto coach—el que modera el comité de expertos, sostiene la síntesis y se asegura de que al final no tengas en las manos un informe abstracto, sino un plan de acción que tomas con convicción.
-          </p>
+          <div class="text-block">
+            <span class="readable">Desde hace muchos años acompaño a personas y organizaciones en procesos de cambio. La mayoría de las veces se trata de decisiones complejas. Desde 2008 impulso la inteligencia colectiva en los procesos. Con formatos que conectan los aspectos personales con los objetivos y profesionales. Porque el éxito se vuelve sostenible cuando combinamos resultados concretos con relaciones más sólidas.</span>
+          </div>
+          <div class="text-block">
+            <span class="readable">En el Radical Reality Check soy tu sexto coach—el que modera el comité de expertos, sostiene la síntesis y se asegura de que al final no tengas en las manos un informe abstracto, sino un plan de acción que tomas con convicción.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="rrc-section rrc-section--alt">
-      <div class="rrc-grid">
+    <!-- KONTAKT CTA -->
+    <section class="aci-section aci-cta-section">
+      <div class="grid section-grid">
         <div class="left"></div>
         <div class="right">
-          <span class="rrc-section-label">Impulsos</span>
-          <h2>Últimas publicaciones</h2>
-          <div class="blog-widget-grid" data-blog-latest data-tag="rrc"></div>
+          <div class="cta-panel" style="padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.85); border: 1px solid var(--c-line);">
+            
+            <h2 class="cta-title" style="margin-bottom: 16px;">¡Traza tu rumbo!</h2>
+            <p style="font-size: 18px; line-height: 1.68; max-width: 58ch; margin-bottom: 24px; color: var(--c-text); text-align: center;">Inicia con el análisis de campo. Luego, seis voces expertas te desafiarán a través de tres o cuatro rondas intensivas. Hasta que tu dirección esté definida.</p>
+            
+            <img src="assets/Bild_11_2.png" alt="Breakthrough" class="inline-freestanding" style="margin: 20px 0 40px;">
+
+            <a class="solid-btn" href="mailto:hello@think-smart.io?subject=Radical%20Reality%20Check">Enviar correo</a>
+            <div style="margin-top: 24px; font-size: 15px; color: #666; line-height: 1.6;">
+              <strong>Rolf Schneidereit</strong><br>
+              Think Smart Coaching<br>
+              hello@think-smart.io<br>
+              💬 WhatsApp: <a href="https://wa.me/595994967574" style="color: var(--c-bronze); text-decoration: none;">+595 994 967 574</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="rrc-contact">
-      <span class="rrc-section-label">Contacto</span>
-      <h2>¡Traza tu rumbo!</h2>
-      <p class="rrc-contact-text">
-        Inicia con el análisis de campo. Luego, seis voces expertas te desafiarán a través de tres o cuatro rondas intensivas. Hasta que tu dirección esté definida.
-      </p>
-      <a href="mailto:rolf@radicalreality.consulting?subject=Radical%20Reality%20Check" class="rrc-contact-btn">Enviar correo</a>
-      <div class="rrc-contact-info">
-        <strong>Rolf Schneidereit</strong><br>
-        Radical Reality Consulting<br>
-        ✉️ rolf@radicalreality.consulting<br>
-        💬 WhatsApp: <a href="https://wa.me/595994967574">+595 994 967 574</a>
-      </div>
-      <p class="rrc-contact-footer">Te acompañamos en tu gran salto</p>
-    </section>
   </main>
 
   <div id="ts-footer-slot"></div>
 
   <script src="components.js"></script>
-  <script src="blog-data.js"></script>
-  <script src="blog.js"></script>
   <script>
     ThinkSmartComponents.mount();
   </script>
