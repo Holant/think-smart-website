@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – Think Smart</title>
+  <meta name="description" content="Impulsos, perspectivas y pensamiento radical sobre coaching con IA y estrategia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body class="page-blog">
+  <div id="ts-menu-slot"></div>
+  <div id="ts-header-slot"></div>
+
+  <main>
+    <section class="blog-hero">
+      <h1>Blog</h1>
+      <p>Impulsos. Perspectivas. Pensamiento radical.</p>
+    </section>
+
+    <section class="blog-main">
+      <div class="blog-filters">
+        <button class="blog-filter is-active" data-filter="all">Todos</button>
+        <button class="blog-filter" data-filter="rrc">Radical Reality Check</button>
+        <button class="blog-filter" data-filter="aci">Inteligencia Colectiva</button>
+        <button class="blog-filter" data-filter="asi">Implementación de Estrategia</button>
+        <button class="blog-filter" data-filter="intelligence">Inteligencia</button>
+      </div>
+      <div class="blog-grid" id="blog-grid"></div>
+    </section>
+  </main>
+
+  <div id="ts-footer-slot"></div>
+
+  <script src="components.js"></script>
+  <script src="blog-data.js"></script>
+  <script src="blog.js"></script>
+  <script>
+    ThinkSmartComponents.mount();
+  </script>
+</body>
+</html>

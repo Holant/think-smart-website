@@ -177,9 +177,9 @@
       // --- ZENTRALES MENÜ ---
       menuItems: [
         { label: 'Home', base: 'index' },
-  { label: 'Augmented Collective Intelligence', base: 'aci' },
-  { label: 'Augmented Strategy Implementation', base: 'asi' },
-  { label: 'Radical Reality Check', href: 'https://radicalreality.consulting/', external: true }
+        { label: 'Augmented Collective Intelligence', base: 'aci' },
+        { label: 'Augmented Strategy Implementation', base: 'asi' },
+        { label: 'Radical Reality Check', base: 'rrc' }
       ].filter(function(item) {
         if (baseName === item.base) {
           return false; 

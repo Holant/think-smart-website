@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referenzen | Think Smart</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="components.css">
+  
+  <style>
+    :root {
+      --c-navy: #0C223F;
+      --c-bronze: #A87E5B;
+      --c-text: #333333;
+      --c-grid: #D5D5D5;
+      --c-stage: #F5F5F5E6;
+      --c-stage-border: #D8D8D8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body.page-referenzen {
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      color: var(--c-text);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background-image:
+        repeating-linear-gradient(to right,
+          var(--c-grid) 0px, var(--c-grid) 1px,
+          transparent 1px, transparent 80px,
+          var(--c-grid) 80px, var(--c-grid) 81px,
+          transparent 81px, transparent 110px
+        ),
+        repeating-linear-gradient(to bottom,
+          var(--c-grid) 0px, var(--c-grid) 1px,
+          transparent 1px, transparent 120px
+        );
+      background-attachment: fixed;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .left { grid-column: 1 / 4; }
+    .right { grid-column: 4 / 11; }
+
+    .readable {
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 10px 0 0 rgba(255, 255, 255, .86), -10px 0 0 rgba(255, 255, 255, .86);
+      display: inline;
+    }
+
+    .text-block { max-width: 74ch; margin-bottom: 24px; }
+
+    main.referenzen-main section { margin-bottom: 72px; }
+    main.referenzen-main section:last-of-type { margin-bottom: 0; padding-bottom: 72px; }
+
+    .ref-hero { margin-top: 40px; margin-bottom: 40px; }
+
+    .ref-hero h1 {
+      color: var(--c-navy);
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, .86);
+      display: inline-block;
+    }
+
+    p { font-size: 16px; line-height: 1.7; }
+
+    h2 {
+      color: var(--c-navy);
+      font-size: 32px;
+      line-height: 1.14;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 4px;
+      background: rgba(255, 255, 255, .86);
+      display: inline-block;
+    }
+
+    h3 {
+      color: var(--c-bronze);
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 700;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, .86);
+      display: inline-block;
+    }
+
+    /* Spezial-Bühne für Referenzen, damit kein Logo abgeschnitten wird */
+    .ref-stage {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #FFFFFF;
+      border: 1px solid var(--c-stage-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .ref-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Das Zitat-Design */
+    .quote-container {
+      border-left: 3px solid var(--c-bronze);
+      padding-left: 20px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .ref-client-tag {
+      color: var(--c-bronze);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      background: rgba(255, 255, 255, .86);
+      display: inline-block;
+    }
+
+    .author-note {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #333;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .86);
+      display: inline-block;
+    }
+
+    @media (max-width: 1100px) {
+      .right { grid-column: 4 / 12; }
+    }
+
+    @media (max-width: 820px) {
+      .content-grid { grid-template-columns: 1fr; padding: 0 22px; }
+      .left, .right { grid-column: 1; }
+      main.referenzen-main section { margin-bottom: 58px; }
+      .left { margin-bottom: 18px; }
+      .ref-stage { max-width: 240px; }
+      .ref-hero h1 { font-size: 34px; }
+      h2 { font-size: 28px; }
+      h3 { font-size: 16px; }
+    }
+  </style>
+</head>
+<body class="page-referenzen">
+
+  <!-- Die Slots für das Menü -->
+  <div id="ts-menu-slot"></div>
+  <div id="ts-header-slot"></div>
+
+  <main class="referenzen-main">
+    
+    <!-- Hero / Seitentitel -->
+    <section class="ref-hero">
+      <div class="content-grid">
+        <div class="left"></div>
+        <div class="right">
+          <h1>Referenzen</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 1: GEWOBA -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/gewoba_klausurtagung.jpg" alt="GEWOBA">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">GEWOBA AG Wohnen und Bauen</span><br>
+          <h2>Veränderung proaktiv gestalten</h2><br>
+          <h3>Neue Impulse gemeinsam auf Augenhöhe entwickeln</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Wir möchten uns bei Herrn Schneidereit herzlich für die Moderation unserer Führungskräfteklausurtagung bedanken. Seine zugängliche Art hat dazu beigetragen, die Teilnehmenden von Beginn an zu Beteiligten zu machen und durch seine Moderation hat er eine positive und produktive Atmosphäre geschaffen, in der die Führungskräfte offen kommunizieren und gemeinsam an zukunftsorientierten Arbeitspaketen arbeiten konnten. Herr Schneidereit erwies sich dabei als guter Vermittler, der die Gruppendynamik geschickt lenkte und gleichzeitig sicherstellte, dass jede und jeder Teilnehmende gehört wurde."
+            </span>
+          </div>
+          
+          <span class="author-note">— Klausurtagung der Führungskräfte</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 2: AWO -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/awo_moenchengladbach.jpeg" alt="AWO">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Arbeiterwohlfahrt Kreisverband Mönchengladbach</span><br>
+          <h2>Umbau zu einer agilen Organisation</h2><br>
+          <h3>Lösungen und Gemeinschaft entwickeln durch Team- und Großgruppenmoderationen</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Wir haben unsere Organisation radikal verändert. Herr Schneidereit hat uns dabei Mut gemacht, ganz konsequent zu denken und zu handeln. Denn er hat uns gleichzeitig die Sicherheit gegeben, dass in vielen Formaten alle Kolleg*innen beteiligt wurden und die Schritte zur Veränderung von allen mitentwickelt und getragen wurden. Rückblickend die einzige Chance zum Erfolg.<br><br>Viele unserer Teams haben durch die Moderation von Rolf Schneidereit gemeinsame Identität und Sichtweisen entwickelt. Er schafft eine Gesprächsatmosphäre, in der jede Einzelne und jeder Einzelne mit ihren individuellen Anliegen gehört und anerkannt wird. Es bleibt dabei nicht bei Problemanalysen und Brainstormings, er fordert konkrete Ergebnisse und Vereinbarungen ein und holt das Wissen und Können der äußerst unterschiedlichen Teilnehmer*innen an die Oberfläche."
+            </span>
+          </div>
+          
+          <span class="author-note">— Uwe Bohlen (Vorstand/Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 3: BDF -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/bdf_fertigbau.jpeg" alt="BDF">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Bundesverband Deutscher Fertigbau e.V. (BDF)</span><br>
+          <h2>Motivation zum gemeinschaftlichen Handeln</h2><br>
+          <h3>Ergebnis- und Konsentmoderation</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Einigkeit und gemeinsame Ziele sind für eine starke Interessengemeinschaft stets von herausragendem Wert. Mit viel Empathie und dem richtigen Maß an Impuls ist es dem Moderator Rolf Schneidereit gelungen, rund 20 Führungspersönlichkeiten unseres Verbandes in der Kürze eines eintägigen Workshops zum gemeinschaftlichen Handeln zu motivieren. Dabei zahlte sich seine tiefe inhaltliche Vorbereitung ebenso aus wie seine ergebnisorientierte Methodik. Herr Schneidereit verfügt als souveräner Kommunikator über das besondere Talent, Diskussionen freien Raum zu lassen, dem Beitrag aller Teilnehmenden gerecht zu werden und zugleich dem Miteinander-Reden eine produktive Richtung zu geben."
+            </span>
+          </div>
+          
+          <span class="author-note">— Dipl.-Ing. Georg Lange (Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 4: Diakonisches Werk -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/diakonie_moenchengladbach.png" alt="Diakonie">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Diakonisches Werk Mönchengladbach e.V.</span><br>
+          <h2>In die Tiefe - in kürzester Zeit</h2><br>
+          <h3>Organisationsdiagnose und Initiativenworkshops</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Wir haben drei Online-Workshops mit Ihnen, Herr Schneidereit, durchgeführt: einen zur Organisationsdiagnose und zwei zur Organisationsentwicklung in Einrichtungen. Durch die Workshops haben wir in der Führung ein klares Bild vom Bedarf der Organisationsentwicklung gewonnen und es sind diverse Initiativen wie ein Ideencafé, Schnuppertage, ein Quartiersnewsletter und Vorstandssprechstunden vor Ort entstanden. Die positiven Rückmeldungen zeigen uns, wie sehr es die Mitarbeitenden honorieren, dass wir ihnen zuhören. So realisieren die Teams, dass sie selbstständig Veränderungen bewirken können."
+            </span>
+          </div>
+          
+          <span class="author-note">— Tilman Henke (Vorstand)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 5: DHWR -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/dhwr_holzwirtschaft.jpeg" alt="DHWR">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Deutscher Holzwirtschaftsrat (DHWR)</span><br>
+          <h2>Das Gemeinsame definieren und ein großes Ziel vereinbaren</h2><br>
+          <h3>Ergebnis- und Konsentmoderation</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Gut zuhören, umsichtig ordnen, gekonnt strukturieren: Das sind aus unserer Sicht drei zentrale Elemente für gelingende Moderation. Rolf Schneidereit hat diese Elemente bei einem mehrtägigen Workshop unserer Dachorganisation beherzigt. In Online- wie auch in Präsenz-Sessions wurden verschiedene Diskussions- und Debattenformate sehr professionell eingesetzt, immer mit dem klaren Fokus auf das inhaltliche Ziel. Damit trug Rolf Schneidereit auch maßgeblich zu einer Atmosphäre des offenen Austausches und respektvollen Umgangs bei, in der die Teilnehmenden gemeinsam wichtige Fortschritte für ein bedeutendes Projekt auf den Weg brachten."
+            </span>
+          </div>
+          
+          <span class="author-note">— Dr. Denny Ohnesorge (Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 6: DIN e.V. -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/din_holz_moebel.png" alt="DIN">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Deutsches Institut für Normung (DIN e.V.) / VFNHM</span><br>
+          <h2>Online: Strategieentwicklung für ein hochkompliziertes Thema</h2><br>
+          <h3>Orientierung für einen Ausschuss des Deutschen Instituts für Normung (DIN e.V.)</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Unser Ziel war es, eine neue langfristige Strategie für den Normenausschuss Holz- und Möbelwirtschaft zu entwickeln. Die Herausforderungen waren dabei enorm: Über 20 Expert*innen und Verbandsvertreter*innen waren an zwei aufeinanderfolgenden, ganzen Tagen beteiligt – und das komplett online! Wir waren erst skeptisch und dann begeistert. Ziel zu 100% erreicht. Zu einem guten Teil haben wir das Rolf Schneidereit zu verdanken, der uns technisch und menschlich kompetent auch durch die schwierigen Phasen des Diskussionsprozesses navigiert hat."
+            </span>
+          </div>
+          
+          <span class="author-note">— Rainer Kabelitz-Ciré (VFNHM)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 7: Gesamtverband Holz -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/holzhandel_verband.jpeg" alt="Holzhandel">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Gesamtverband Deutscher Holzhandel e.V.</span><br>
+          <h2>Den Kurs setzen in schwierigen Zeiten</h2><br>
+          <h3>Zweitägiger Strategieworkshop</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Wir hatten mit Rolf Schneidereit einen zweitägigen Strategieworkshop durchgeführt. Wir haben intensiv gearbeitet – waren offen, ergebnisorientiert und jederzeit motiviert. Wir haben viele konkrete Projekte zur Umsetzung herausgearbeitet. Daher können wir Herrn Schneidereit als Moderator sehr empfehlen."
+            </span>
+          </div>
+          
+          <span class="author-note">— Thomas Goebel (Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 8: Engagement Global -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/engagement_global_block.png" alt="Engagement Global">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Engagement Global gGmbH</span><br>
+          <h2>Sicherheit bei Onlinekonferenzen</h2><br>
+          <h3>Die didaktische, dramaturgische und technische Transformation bestens bewältigt</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Im September 2020 haben wir mit Hilfe von Rolf Schneidereit und seinem Team erstmalig eine analog geplante Tagung zu einem anspruchsvollen entwicklungspolitischen Thema in ein digital-virtuelles Format umgewandelt. Mit seiner Unterstützung haben wir die didaktische, dramaturgische und technische Transformation bestens bewältigt. Seine ruhige (und beruhigende) Kommunikation im Vorfeld und seine souveräne Moderation des Tages war für alle Beteiligten sehr angenehm und entlastend."
+            </span>
+          </div>
+          
+          <span class="author-note">— Martin Block (Leiter Servicestelle)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 9: Karl Bachl -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/bachl_betonwerke.png" alt="Karl Bachl">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Karl Bachl Betonwerke GmbH & Co. KG</span><br>
+          <h2>Maximales Gefühl von Motivation und Gemeinschaft</h2><br>
+          <h3>Umstrukturierung und Neuausrichtung eines Geschäftsbereichs</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Rolf Schneidereit hat uns bereits zum zweiten Mal in einer Phase der Umstrukturierung und Neuausrichtung eines Geschäftsbereiches im Rahmen einer Führungsklausur entscheidend begleitet. Innerhalb kurzer Zeit gelingt es ihm, sich auf die gegebenen Umstände und die unterschiedlichen Charaktere einzustellen und bei den Teilnehmern das maximale Gefühl an Motivation und Gemeinschaft auszulösen. Mit Herrn Schneidereit haben wir intensiv lösungs- und zukunftsorientiert gearbeitet."
+            </span>
+          </div>
+          
+          <span class="author-note">— Wolfgang Paul (Geschäftsführung)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 10: HRK MODUS -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/hrk_modus.png" alt="HRK">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Hochschulrektorenkonferenz (HRK) - MODUS</span><br>
+          <h2>Kollektiv intelligent im virtuellen Raum</h2><br>
+          <h3>Anerkennung und Anrechnung an Hochschulen</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Als erfahrener Experte auf dem Gebiet der Online-Moderation hat Herr Schneidereit zwei Workshops nicht nur angenehm und souverän moderiert, sondern uns bereits im Vorfeld mit wertvollen Anregungen und kreativen Ideas unterstützt und somit zum Erfolg unserer Workshops beigetragen. Durch seine natürliche und empathische Art versteht er es, die Teilnehmerinnen und Teilnehmer sowohl auf der persönlichen als auch auf der inhaltlichen Ebene abzuholen."
+            </span>
+          </div>
+          
+          <span class="author-note">— Tilman Dörr (Projektleiter)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 11: ASB NRW -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/asb_nrw_klausurtagung.png" alt="ASB">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Arbeiter-Samariter-Bund (ASB) NRW e.V.</span><br>
+          <h2>Wirksame Organisationsentwicklung</h2><br>
+          <h3>Klausurtagung und Verbandsentwicklungsprozess</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Lieber Herr Schneidereit, ganz herzlichen Dank für Ihre tolle Arbeit sowie für Ihre empathische, souveräne, entspannte und menschengewinnende Moderation unserer Klausurtagung. Das haben Sie super gemacht. Ich persönlich war begeistert und die Rückmeldungen, die ich sonst bekommen habe, waren durchweg positiv. Die Veranstaltung war neben des inhaltlichen Zugewinns ein außerordentlicher Beitrag zur Weiterentwicklung der Nachwuchsführungskräfte."
+            </span>
+          </div>
+          
+          <span class="author-note">— Dr. Stefan Sandbrink (Landesgeschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 12: Transferagentur -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/transferagentur_nrw.png" alt="Transferagentur">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Transferagentur Kommunales Bildungsmanagement NRW</span><br>
+          <h2>Beeindruckende Online-Workshops</h2><br>
+          <h3>Netzwerkarbeit in virtuellen Kommunikationsräumen</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Vielen Dank für den erfolgreichen digitalen Qualifizierungsworkshop „Netzwerkarbeit in virtuellen Kommunikationsräumen“ für Fachkräfte im Kommunalen Bildungsmanagement. Es war sehr beeindruckend zu sehen, wie Sie die mehr als 50 Teilnehmenden auf eine virtuelle Reise mitgenommen haben, so dass diese sich als Expert*innen ihres Themas verstehen und ihr Wissen miteinander teilen konnten. Der gelungene Methodenmix ermöglichte das praxisnahe Ausprobieren digitaler Tools."
+            </span>
+          </div>
+          
+          <span class="author-note">— Kirsten Althoff</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 13: Stadtwerke Nettetal -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/stadtwerke_nettetal.jpg" alt="Stadtwerke Nettetal">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Stadtwerke Nettetal</span><br>
+          <h2>Verbindender Dialog</h2><br>
+          <h3>Erstes Kundenforum für Kundenorientierung</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Auf der Suche nach neuen Wegen der Kundenorientierung haben wir erstmalig ein Kundenforum durchgeführt. Im Vorfeld hatten wir einige Sorge, ob eine solche Diskussion nicht entgleiten kann. Wie sich zeigte, waren sie unbegründet. Durch seinen zugewandten und humorvollen Moderationsstil gelingt es Herrn Schneidereit, selbst harte Kritik in konstruktive Bahnen zu lenken. Sehr erfreulich fanden wir, dass deutlich wurde, wie sehr die Kunden uns als 'ihre Stadtwerke' schätzen."
+            </span>
+          </div>
+          
+          <span class="author-note">— Norbert Dieling (Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 14: #17Ziele -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/engagement_global_17ziele.png" alt="#17Ziele">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Engagement Global gGmbH / #17Ziele</span><br>
+          <h2>Lebendige Onlinekonferenzen</h2><br>
+          <h3>Festival der Taten (digital & analog)</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Lieber Rolf, dank Deiner konkreten Vorschläge, wie das 'Festival der Taten' online gelingen kann, konnten wir es trotz aller Hürden, die uns durch Corona in den Weg gelegt wurden, auch 2020 realisieren. Zweimal haben wir es nun digital mit Deinem umsichtigen Support für Prozess und Moderation durchgeführt. Die positiven Rückmeldungen der vielen hundert Teilnehmenden zeigen, dass wir auch mit der Onlineversion erfolgreiche Arbeit leisten."
+            </span>
+          </div>
+          
+          <span class="author-note">— Christian Maria Mäntele (Leitung Projekt #17Ziele)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz 15: BGI -->
+    <section>
+      <div class="content-grid">
+        <div class="left">
+          <div class="stage ref-stage">
+            <img src="assets/referenzen/bgi_blumenhandel.jpg" alt="BGI">
+          </div>
+        </div>
+        <div class="right">
+          <span class="ref-client-tag">Verband des Deutschen Blumen- Groß- und Importhandels e.V. (BGI)</span><br>
+          <h2>Impulse für die Verbandsarbeit</h2><br>
+          <h3>Offener Innovationsprozess & Mitglieder-Workshops</h3>
+          
+          <div class="quote-container">
+            <span class="readable quote-text">
+              "Anfang 2016 haben wir uns entschlossen, in unserer Verbandsarbeit neue Wege zu beschreiten und unsere Mitglieder zu einem offenen Innovationsprozess einzuladen. Dieses Experiment ist auf ganzer Linie gelungen. In den zwei zweitägigen Workshops sind viele kreative Ideen und Impulse entstanden und neue Verbindungen zwischen den Mitgliedern geknüpft worden. Haben Sie herzlichen Dank für Ihre zielführende und humorvolle Moderation."
+            </span>
+          </div>
+          
+          <span class="author-note">— Frank Zeiler (Geschäftsführer)</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Platzhalter für den echten Footer -->
+  <div id="ts-footer-slot"></div>
+
+  <!-- JS Komponenten aktivieren -->
+  <script src="components.js"></script>
+  <script>
+    ThinkSmartComponents.mount({
+      headerVariant: 'home'
+    });
+
+    // AUSSCHLIESSLICH die Sprachen ausblenden
+    // Wir greifen unter keinen Umständen irgendetwas an, das ein Bild (wie die 3 Menü-Striche) enthält.
+    function hideLanguagesOnly() {
+      var slots = document.querySelectorAll('#ts-menu-slot, #ts-header-slot');
+      slots.forEach(function(slot) {
+        if (!slot) return;
+        
+        var links = slot.querySelectorAll('a');
+        links.forEach(function(link) {
+          var text = link.textContent.trim().toUpperCase();
+          
+          // Wenn der Link exakt "DE", "EN" oder "ES" heißt:
+          if (text === 'DE' || text === 'EN' || text === 'ES') {
+            link.style.display = 'none';
+
+            // Nachfolgende Trennstriche (|) ausblenden
+            var sibling = link.nextSibling;
+            while (sibling) {
+              if (sibling.nodeType === Node.TEXT_NODE && sibling.textContent.includes('|')) {
+                sibling.textContent = sibling.textContent.replace('|', '');
+                break;
+              }
+              if (sibling.nodeType === Node.ELEMENT_NODE && sibling.textContent.includes('|')) {
+                sibling.style.display = 'none';
+                break;
+              }
+              sibling = sibling.nextSibling;
+            }
+          }
+        });
+      });
+    }
+
+    // Führe die Funktion wiederholt im Intervall aus, um asynchrones Laden abzufangen
+    var cleanInterval = setInterval(hideLanguagesOnly, 100);
+    setTimeout(function() {
+      clearInterval(cleanInterval);
+    }, 3000);
+  </script>
+</body>
+</html>
