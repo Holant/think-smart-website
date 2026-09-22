@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>The Citadel and the Planet: The False Dichotomy of Frontier AI Safety – Think Smart Executive Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --c-navy:#16264c;
+    --c-bronze:#b08a4a;
+    --c-text:#3a3f4a;
+    --c-line:#e8e8e8;
+    --c-box:#f4f5f7;
+    --c-code:#1e2430;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--c-text);
+    background-color:#ffffff;
+    background-image:repeating-linear-gradient(to right, transparent 0 87px, rgba(22,38,76,.04) 87px 88px);
+    cursor:pointer;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:1200px; margin:0 auto;}
+  section.block{padding:90px 48px 80px; border-bottom:1px solid var(--c-line);}
+  section.block:last-of-type{border-bottom:none; padding-bottom:140px;}
+  .block-inner{display:grid; grid-template-columns:300px 1fr; gap:64px; align-items:start;}
+  
+  .col-left{position:sticky; top:40px;}
+  .col-left .phase-tag{font-size:12px; font-weight:800; color:var(--c-bronze); text-transform:uppercase; letter-spacing:.16em; margin-bottom:8px;}
+  .col-left .big-number{font-size:68px; font-weight:900; color:var(--c-navy); line-height:0.95; letter-spacing:-.04em; margin-bottom:16px;}
+  .col-left .typo-card{border-left:3px solid var(--c-bronze); padding-left:14px; margin-top:12px;}
+  .col-left .typo-label{font-size:13px; font-weight:700; color:#687182; text-transform:uppercase; letter-spacing:.06em; line-height:1.4;}
+  .col-left .pill{display:inline-block; padding:4px 10px; background:rgba(176,138,74,.12); color:var(--c-bronze); font-size:11px; font-weight:800; border-radius:3px; margin-top:14px; text-transform:uppercase; letter-spacing:.05em;}
+
+  h2{color:var(--c-navy); font-size:30px; font-weight:800; letter-spacing:-.02em; margin-bottom:20px; line-height:1.2;}
+  .main-text{font-size:17px; line-height:1.75; color:var(--c-text); max-width:70ch; font-weight:500; margin-bottom:16px;}
+  .main-text strong{color:var(--c-navy);}
+
+  .reveal-box{
+    background:var(--c-box);
+    border:1px solid #dedede;
+    border-left:4px solid var(--c-bronze);
+    padding:22px 26px;
+    margin-top:20px;
+    font-size:15px; line-height:1.7; color:#4a4f5a;
+    max-width:70ch;
+    filter:blur(7px) grayscale(40%);
+    opacity:.20;
+    transform:translateY(6px);
+    transition:filter .75s ease, opacity .75s ease, transform .75s ease;
+    pointer-events:none;
+    border-radius:2px;
+  }
+  .reveal-box strong{color:var(--c-navy);}
+  .reveal-box ul{list-style:none; margin-top:8px;}
+  .reveal-box ul li{position:relative; padding-left:20px; margin-bottom:6px;}
+  .reveal-box ul li:before{content:"•"; color:var(--c-bronze); position:absolute; left:0; font-weight:bold; font-size:18px;}
+  .reveal-box.shown{filter:blur(0) grayscale(0); opacity:1; transform:translateY(0); pointer-events:auto;}
+
+  /* EXPANDED BREAKOUT WIDTH FOR VISUAL CHARTS */
+  .reveal-box.asset-box {
+    max-width: 100%;
+    padding: 16px;
+  }
+  .asset-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .dossier-asset {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    display: block;
+    cursor: default;
+    background: #ffffff;
+  }
+  .reveal-box.shown .dossier-asset {
+    cursor: zoom-in;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .reveal-box.shown .dossier-asset:hover {
+    box-shadow: 0 8px 24px rgba(22,38,76,0.12);
+  }
+  .zoom-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(22, 38, 76, 0.85);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .reveal-box.shown:hover .zoom-badge {
+    opacity: 1;
+  }
+  .asset-caption {
+    font-size: 12.5px;
+    color: #687182;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* FULL-SCREEN LIGHTBOX MODAL */
+  #lightboxModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    cursor: zoom-out;
+  }
+  #lightboxModal.active {
+    display: flex;
+  }
+  #lightboxImg {
+    max-width: 96vw;
+    max-height: 94vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s;
+  }
+  .lightbox-close:hover { opacity: 0.7; }
+
+  /* HINT BAR */
+  .hint-bar{
+    position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+    background:rgba(22,38,76,.92); color:#fff;
+    font-size:13px; font-weight:600; letter-spacing:.04em;
+    padding:10px 22px; border-radius:24px; z-index:1000;
+    pointer-events:none; opacity:.90; transition:opacity .5s;
+    white-space:nowrap; box-shadow:0 4px 15px rgba(0,0,0,.2);
+  }
+  .hint-bar.done{opacity:0;}
+
+  /* TYPOGRAPHIC HIGHLIGHTS */
+  .meta-tagline {
+    font-size: 13.5px;
+    font-style: italic;
+    color: #555e6d;
+    margin-bottom: 8px;
+  }
+  .sub-headline {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--c-navy);
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width:860px){
+    .block-inner{grid-template-columns:1fr; gap:24px;}
+    .col-left{position:static;}
+    section.block{padding:60px 20px 40px;}
+    h2{font-size:24px;}
+    .hint-bar{white-space:normal; text-align:center; max-width:92vw;}
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <!-- BLOCK 00: META & EXECUTIVE BRIEFING -->
+  <section class="block" id="block-00">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">BRIEFING</div>
+        <div class="big-number">00</div>
+        <div class="typo-card">
+          <div class="typo-label">Dossier Overview</div>
+        </div>
+        <span class="pill">LIVING MAP v1.0</span>
+      </div>
+      <div class="col-right">
+        <h2>The Citadel and the Planet: The False Dichotomy of Frontier AI Safety</h2>
+        <p class="main-text">
+          <strong>Why Silicon Valley’s Internal Civil War Paralyzes Global Governance</strong>—and How a Polycentric Architecture Breaks the Stalemate.
+        </p>
+
+        <div class="reveal-box">
+          <p class="meta-tagline"><strong>v1.0 | September 22, 2026</strong> · LIVING DISCOURSE MAP created with Augmented Collective Intelligence (ACI)</p>
+          <p><em>"This is not a closed manifesto, but an attempt to illuminate hidden common ground in an entrenched controversy. This map is a work in progress. We explicitly invite you to identify blind spots, falsify assumptions, and sharpen the analysis."</em></p>
+          <p style="margin-top:8px;"><strong>&rarr; Submit critique, corrections &amp; blind spots:</strong> <a href="mailto:hello@think-smart.io" style="color:var(--c-bronze);text-decoration:none;font-weight:600;">hello@think-smart.io</a></p>
+        </div>
+
+        <div class="reveal-box">
+          <div class="sub-headline">Executive Summary in 60 Seconds</div>
+          <ul>
+            <li><strong>The Core Trap:</strong> The Western clash between precautionary containment (<em>Frontier Precaution</em>) and permissionless deployment (<em>Open Acceleration</em>) forms an intractable Moloch trap. Unilateral caution penalizes responsible labs with capital flight; unchecked commercial velocity exports catastrophic tail-risks onto society. The dispute cannot be resolved within San Francisco alone.</li>
+            <li><strong>The Planetary Reality:</strong> What Washington, London, or Brussels frame as universal safety rules, sovereign non-Western states and emerging economies view as techno-imperialist compute enclosure. Mandatory domestic compute licensing triggers aggressive sovereign counter-stacks abroad while externalizing ecological drawdown and exploited digital labor onto the Global South.</li>
+            <li><strong>The Architectural Third Way:</strong> Sustainable governance decouples catastrophic dual-use containment from market gatekeeping. Hardware-enforced cryptographic boundaries (<em>Zero-Knowledge Compute Auditing</em>) verify hazardous capability limits directly at the silicon layer without inspecting proprietary weights, centralizing market entry, or banning open-source research.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 01: THE HOOK & STAKES -->
+  <section class="block" id="block-01">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">PROLOGUE</div>
+        <div class="big-number">01</div>
+        <div class="typo-card">
+          <div class="typo-label">Systemic Flashpoint</div>
+        </div>
+        <span class="pill">THE STAKES</span>
+      </div>
+      <div class="col-right">
+        <h2>The Unseen Stakes: Beyond Tribal Shouting</h2>
+        <p class="main-text">
+          Public discourse routinely reduces the frontier artificial intelligence debate to a juvenile caricature. Commentators pit apocalyptic doomsayers against hyper-capitalist accelerationists, framing the dispute as a theatrical fight between neurotic fear and reckless greed.
+        </p>
+
+        <div class="reveal-box">
+          <p><strong>This tribal framing misses the point entirely.</strong> Both sides act out of rational, existential dread. We are witnessing an unprecedented stress-test of civilizational governance.</p>
+          <p style="margin-top:8px;">At stake is not simply software regulation, but the ultimate distribution of cognitive power:</p>
+          <ul>
+            <li><strong>Who controls</strong> the next compounding leap in autonomous capabilities and recursive self-improvement?</li>
+            <li><strong>Who bears</strong> the systemic, uninsurable downside of autonomous agent swarms and democratized dual-use hazards?</li>
+            <li><strong>Who pays</strong> the physical, energetic, and human cost of the underlying planetary compute substrate?</li>
+          </ul>
+          <p style="margin-top:8px;">Resolving this deadlock requires moving past tribal warfare. We must first steel-man each perspective at its highest intellectual caliber, then step outside the Western tech bubble to confront the planetary reality that Silicon Valley routinely ignores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 02: THE DECODED BATTLEFIELD -->
+  <section class="block" id="block-02">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">ANALYSIS I</div>
+        <div class="big-number">02</div>
+        <div class="typo-card">
+          <div class="typo-label">Discourse Camps</div>
+        </div>
+        <span class="pill">STEEL-MANNING</span>
+      </div>
+      <div class="col-right">
+        <h2>The Decoded Battlefield: Inside the Citadel &amp; Beyond</h2>
+        <p class="main-text">
+          Resolving systemic conflict begins with intellectual pacing: validating the legitimate vulnerabilities of each camp without cynicism. Both inside the Western tech epicenter and across the global horizon, actors protect essential survival imperatives.
+        </p>
+
+        <div class="reveal-box">
+          <div class="sub-headline">The Five Distinct Camps</div>
+          <ul>
+            <li><strong>1. Frontier Precaution &amp; Alignment (Citadel Core):</strong> Compounding recursive capabilities alter software safety physics. When autonomous models orchestrate tools and lower pathogen synthesis barriers, post-hoc patch cycles become obsolete. Pacing scaling and mandating verified safety cases is baseline civilizational hygiene.</li>
+            <li><strong>2. Open Acceleration &amp; Competitive Vitality (Citadel Core):</strong> Concentrating intelligence in two or three state-sanctioned corporate boardrooms creates the ultimate single point of cognitive failure. Open-weight architectures provide defensive hardening, universal red-teaming, and prevent domestic obsolescence against foreign rivals.</li>
+            <li><strong>3. Multipolar Sovereign Realists (Global Horizon):</strong> National survival demands autonomy over the cognitive stack—silicon, weights, data, and cultural alignment. Sovereign powers (Beijing, Abu Dhabi) actively restrict CBRN weaponization under national law, but reject Western licensing clubs as economic warfare.</li>
+            <li><strong>4. Planetary Commons &amp; Externalized Costs (Global Horizon):</strong> Alignment frameworks obsessing over software loss functions while ignoring gigalitres of drained aquifers, grid brownouts, and traumatized data workers earning $1.50/hour in the Global South operate as elite accounting fraud.</li>
+            <li><strong>5. Institutional Standardizers (Regulatory Center):</strong> Democratic states cannot govern via corporate self-regulation. Enforceable FLOP thresholds (e.g., 10²⁵ FLOP) establish auditable compliance baselines to preserve the rule of law.</li>
+          </ul>
+        </div>
+
+        <div class="reveal-box asset-box">
+          <div class="asset-wrapper">
+            <img src="asset-1-markmap.png" alt="Complete Discourse Landscape" class="dossier-asset">
+            <span class="zoom-badge">🔍 Click to zoom</span>
+          </div>
+          <div class="asset-caption">Caption: 360-degree taxonomy mapping the Western Citadel fault line alongside the multipolar sovereign reality and downstream commons.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 03: THE HIDDEN CONSENSUS & 2x2 MATRIX -->
+  <section class="block" id="block-03">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">ANALYSIS II</div>
+        <div class="big-number">03</div>
+        <div class="typo-card">
+          <div class="typo-label">Underlying Fears</div>
+        </div>
+        <span class="pill">2x2 MATRIX</span>
+      </div>
+      <div class="col-right">
+        <h2>The Hidden Consensus &amp; The Two Axes of Fear</h2>
+        <p class="main-text">
+          Beneath the rhetorical crossfire lies a bedrock principle shared by every serious faction: <strong>Zero human entities benefit from an uncontrollable, self-replicating catastrophic failure.</strong> The existential floor is identical. What diverges is the distribution of fear across power structures.
+        </p>
+
+        <div class="reveal-box">
+          <div class="sub-headline">The Orthogonal Matrix of Fear</div>
+          <p>Conventional compromises fail because regulators remain trapped in a one-dimensional "Fast vs. Slow" debate. Governance must be mapped across two independent axes:</p>
+          <ul>
+            <li><strong>Horizontal Axis (Western Dialectic):</strong> Precautionary Containment &amp; Compute Gating [Left] vs. Open Acceleration &amp; Permissionless Deployment [Right].</li>
+            <li><strong>Vertical Axis (Global Power Dimension):</strong> Hegemonic Centralization &amp; Closed Cartels [Top] vs. Multipolar Polycentric Sovereignty &amp; Distributed Commons [Bottom].</li>
+          </ul>
+          <p style="margin-top:8px;"><strong>The 4 Quadrants Decoded:</strong></p>
+          <ul>
+            <li><strong>Q1: Centralized Precautionary Governance:</strong> Gated licensing moats captured by corporate incumbents, creating bureaucratic monopolies.</li>
+            <li><strong>Q2: Concentrated Market Acceleration:</strong> Unconstrained commercial velocity by mega-cap infrastructure providers, externalizing systemic and ecological risk.</li>
+            <li><strong>Q3: Decentralized Sovereign Restriction:</strong> Balkanized prohibition and national bans driving R&amp;D into illicit compute havens.</li>
+            <li><strong>Q4: Distributed Verifiable Deployment (The Synthesis):</strong> Cryptographically verified compute boundaries protecting catastrophic safety thresholds while preserving permissionless research and sovereign autonomy.</li>
+          </ul>
+        </div>
+
+        <div class="reveal-box asset-box">
+          <div class="asset-wrapper">
+            <img src="asset-2-matrix.png" alt="Two Axes of Fear" class="dossier-asset">
+            <span class="zoom-badge">🔍 Click to zoom</span>
+          </div>
+          <div class="asset-caption">Caption: Orthogonal mapping contrasting the familiar Western risk/speed axis against the global power distribution axis.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 04: THE ARCHITECTURAL BREAKTHROUGH -->
+  <section class="block" id="block-04">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">SYNTHESIS</div>
+        <div class="big-number">04</div>
+        <div class="typo-card">
+          <div class="typo-label">Third Ways</div>
+        </div>
+        <span class="pill">DECOUPLING</span>
+      </div>
+      <div class="col-right">
+        <h2>The Architectural Breakthrough: Systemic Third Ways</h2>
+        <p class="main-text">
+          Paralysis ends when we apply the <strong>Decoupling Principle</strong>: separating the containment of irreversible physical harm from the surveillance of code, culture, and market entry.
+        </p>
+
+        <div class="reveal-box asset-box">
+          <div class="asset-wrapper">
+            <img src="asset-3-flowchart.png" alt="Camps to Solutions Flowchart" class="dossier-asset">
+            <span class="zoom-badge">🔍 Click to zoom</span>
+          </div>
+          <div class="asset-caption">Caption: Convergence architecture showing the transition from four polarized camps through the structural bottleneck into verifiable institutional solutions.</div>
+        </div>
+
+        <div class="reveal-box">
+          <div class="sub-headline">Two Concrete Decoupling Mechanisms</div>
+          <ul>
+            <li><strong>Third Way 1: Zero-Knowledge Compute Auditing (ZK-CA):</strong> Move governance from code inspection to silicon enclaves. Fabricators embed cryptographic root-of-trust hardware into enterprise GPUs. Training runs approaching critical thresholds (&gt;10²⁶ FLOP) generate mathematical Zero-Knowledge Proofs confirming that prohibited autonomous replication or pathogen optimization loops are absent—proving compliance without exposing proprietary weights, source code, or cultural alignment.</li>
+            <li><strong>Third Way 2: Polycentric Non-Proliferation Compact with Ecological Dividend:</strong> An international registry co-governed by Western, non-Western, and scientific bodies modeled on the IAEA and ICAO. Inspections apply strictly to mega-clusters (&gt;100 MW). Participating operators pay tariffs into a <em>Planetary Commons Infrastructure Fund</em> to replenish municipal aquifers, reinforce local power grids, and guarantee living wages for frontline data annotators.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 05: STRATEGIC LESSONS & OPEN PEER-REVIEW -->
+  <section class="block" id="block-05">
+    <div class="block-inner">
+      <div class="col-left">
+        <div class="phase-tag">PRACTICE</div>
+        <div class="big-number">05</div>
+        <div class="typo-card">
+          <div class="typo-label">Leadership &amp; Dialogue</div>
+        </div>
+        <span class="pill">ACI FRAMEWORK</span>
+      </div>
+      <div class="col-right">
+        <h2>Executive Strategy Lessons &amp; Open Peer-Review</h2>
+        <p class="main-text">
+          Institutional decision-makers, boards, and sovereign leaders must internalize two foundational rules when navigating systemic frontier technologies:
+        </p>
+
+        <div class="reveal-box">
+          <ul>
+            <li><strong>The Mirage of the Domestic Safe Harbor:</strong> No state or board protects itself by binding domestic innovators in administrative red tape while foreign capability races accelerate unchecked. Effective planetary governance creates structural incentives that make international compliance economically and technically rational.</li>
+            <li><strong>Structural Synthesis Beats Lazy Compromise:</strong> Conventional policy produces weak compromises—vague reporting mandates that strangle startups with paperwork while leaving catastrophic tail-risks unverified. Strategic leadership decouples the competing fears: preserving open innovation unconditionally, while anchoring non-negotiable boundaries directly inside physical bottlenecks.</li>
+          </ul>
+        </div>
+
+        <div class="reveal-box">
+          <div class="sub-headline">OPEN PEER-REVIEW: WHERE DOES THIS SYNTHESIS BREAK?</div>
+          <p style="margin-top:6px;">Every strategic synthesis stands and falls with its premises. We view this discourse map as an open invitation to organized dissent.</p>
+          <p style="margin-top:8px;">Send your counter-theses, edge cases, and corrections directly to <a href="mailto:hello@think-smart.io" style="color:var(--c-bronze);text-decoration:none;font-weight:600;">hello@think-smart.io</a>.</p>
+          <p style="margin-top:8px;">Substantive objections will be integrated into future versions of this living map.</p>
+        </div>
+
+        <div class="reveal-box">
+          <div class="sub-headline">Strategic Excellence in Complex Environments</div>
+          <p style="margin-top:6px;">Think Smart's Augmented Collective Intelligence (ACI) framework makes hidden fault lines navigable. We structure entrenched negotiation deadlocks, identify systemic leverage points, and engineer robust solution spaces for complex challenges.</p>
+          <p style="margin-top:12px;"><strong>Get support:</strong> <a href="mailto:hello@think-smart.io" style="color:var(--c-bronze);text-decoration:none;font-weight:700;">hello@think-smart.io</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="hint-bar" id="hintBar">Click or Spacebar: next step · R = Reset</div>
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightboxModal">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightboxImg" src="" alt="Enlarged visual">
+</div>
+
+<script>
+const hintBar = document.getElementById("hintBar");
+const boxes = Array.from(document.querySelectorAll(".reveal-box"));
+const lightbox = document.getElementById("lightboxModal");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxClose = document.querySelector(".lightbox-close");
+
+function updateHint(){
+  const allShown = boxes.every(b => b.classList.contains("shown"));
+  hintBar.classList.toggle("done", allShown);
+}
+
+function revealNext(){
+  const next = boxes.find(b => !b.classList.contains("shown"));
+  if(!next) return;
+  next.classList.add("shown");
+  next.scrollIntoView({behavior:"smooth", block:"center"});
+  updateHint();
+}
+
+function resetAll(){
+  boxes.forEach(b => b.classList.remove("shown"));
+  window.scrollTo({top:0, behavior:"smooth"});
+  updateHint();
+}
+
+/* Lightbox Functions */
+function openZoom(img){
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add("active");
+}
+function closeZoom(){
+  lightbox.classList.remove("active");
+}
+
+lightboxClose.addEventListener("click", closeZoom);
+lightbox.addEventListener("click", (e) => {
+  if (e.target !== lightboxImg) closeZoom();
+});
+
+/* Keyboard Navigation */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closeZoom();
+    return;
+  }
+  if (lightbox.classList.contains("active")) return;
+
+  if(e.code === "Space" || e.code === "ArrowRight" || e.code === "PageDown" || e.code === "Enter"){
+    e.preventDefault();
+    revealNext();
+  }
+  if(e.key.toLowerCase() === "r"){
+    resetAll();
+  }
+});
+
+/* Smart Click Handling: Advance Reveal vs. Open Lightbox */
+document.addEventListener("click", (e) => {
+  if (lightbox.classList.contains("active")) return;
+
+  // If clicking on an image inside a revealed box, open full-screen zoom
+  const clickedAsset = e.target.closest(".dossier-asset");
+  if (clickedAsset && clickedAsset.closest(".reveal-box.shown")) {
+    e.stopPropagation();
+    openZoom(clickedAsset);
+    return;
+  }
+
+  // If clicking directly on an unrevealed box, reveal it specifically
+  const clickedUnrevealedBox = e.target.closest(".reveal-box:not(.shown)");
+  if (clickedUnrevealedBox) {
+    clickedUnrevealedBox.classList.add("shown");
+    clickedUnrevealedBox.scrollIntoView({behavior:"smooth", block:"center"});
+    updateHint();
+    return;
+  }
+
+  // Ignore clicks inside modal or interactive links
+  if (e.target.closest("#lightboxModal") || e.target.closest("a")) return;
+
+  revealNext();
+});
+</script>
+</body>
+</html>
